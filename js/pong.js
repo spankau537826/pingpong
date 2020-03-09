@@ -20,6 +20,13 @@ function drawText(text, x, y, color) {
   context.fillText(text, x, y);
 }
 
-drawRect(300, 200, 100, 100, 'yellow');
-drawCircle(100, 100, 16, 'red');
-drawText('my text', 100, 100, 'blue');
+class Player {
+  constructor(x,y,w,h) {
+    this.height = height;
+    this.width = width;
+  }
+}
+
+drawRect(10, 150, 20, 100, 'grey');
+drawRect(570, 150, 20, 100, 'grey');
+drawCircle(300, 150, 16, 'red');
