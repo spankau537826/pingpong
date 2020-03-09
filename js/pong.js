@@ -1,32 +1,25 @@
 const canvas = document.getElementById("pong");
 const context = canvas.getContext("2d");
 
-// context.fillStyle = "black";
-// context.fillRect(100, 200, 50, 75);
-// context.fillStyle = "red";
-// context.beginPath();
-// context.arc(300, 350, 100, 0, Math.PI*2, false);
-// context.closePath();
-// context.fill();
-
-
 function drawRect(x, y, w, h, color) {
-  ctx.fillStyle = color;
-  ctx.fillRect(x, y, w, h);
+  context.fillStyle = color;
+  context.fillRect(x, y, w, h);
 }
 
 function drawCircle(x, y, r, color) {
-  ctx.fillStyle = color;
-  ctx.beginPath();
-  ctx.arc(x, y, r, 0, Math.PI*2, false);
-  ctx.closePath();
-  ctx.fill();
+  context.fillStyle = color;
+  context.beginPath();
+  context.arc(x, y, r, 0, Math.PI*2, false);
+  context.closePath();
+  context.fill();
 }
 
 function drawText(text, x, y, color) {
-  ctx.fillStyle = color;
-  ctx.font = "75px fantasy";
-  ctx.fillText(text, x, y);
+  context.fillStyle = color;
+  context.font = "75px fantasy";
+  context.fillText(text, x, y);
 }
 
-drawRect(100, 100, 100, 100, red);
+drawRect(300, 200, 100, 100, 'yellow');
+drawCircle(100, 100, 16, 'red');
+drawText('my text', 100, 100, 'blue');
