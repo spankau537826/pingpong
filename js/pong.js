@@ -27,6 +27,8 @@ class Player {
   }
 }
 
+drawRect(canvas.width / 2,0,1,canvas.height,'black');
 drawRect(10, 150, 20, 100, 'grey');
 drawRect(570, 150, 20, 100, 'grey');
 drawCircle(300, 150, 16, 'red');
+// net.drawNet();
