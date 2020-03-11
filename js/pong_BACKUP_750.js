@@ -35,14 +35,20 @@ canvas.addEventListener("mousemove", function(e)
   var cRect = canvas.getBoundingClientRect();
   newY = e.clientY - cRect.top;
 
+<<<<<<< HEAD
   if (newY <= cRect.bottom - 110) { 
     player.clear(context,oldX,oldY);
     player.move(newY);
   } 
   oldY = newY;
 })
+// drawRect(10, 150, 20, 100, 'grey');
+// drawRect(570, 150, 20, 100, 'grey');
+// drawCircle(300, 150, 16, 'red');
+=======
 drawRect(canvas.width / 2,0,1,canvas.height,'black');
 drawRect(10, 150, 20, 100, 'grey');
 drawRect(570, 150, 20, 100, 'grey');
 drawCircle(300, 150, 16, 'red');
 // net.drawNet();
+>>>>>>> spielfeldlinie erstellt

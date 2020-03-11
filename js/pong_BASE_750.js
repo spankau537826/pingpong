@@ -20,29 +20,13 @@ function drawText(text, x, y, color) {
   context.fillText(text, x, y);
 }
 
-//Create game objects
-var oldX = 10, oldY = 150, newX, newY;
-var player = new Player(oldX,oldY,'grey');
-var opponent = new Player(570,150,'grey');
-var ball = new Ball(300,150,'red');
-player.draw();
-opponent.draw();
-ball.draw();
+class Player {
+  constructor(x,y,w,h) {
+    this.height = height;
+    this.width = width;
+  }
+}
 
-//Get mouse poasition and move player
-canvas.addEventListener("mousemove", function(e) 
-{
-  var cRect = canvas.getBoundingClientRect();
-  newY = e.clientY - cRect.top;
-
-  if (newY <= cRect.bottom - 110) { 
-    player.clear(context,oldX,oldY);
-    player.move(newY);
-  } 
-  oldY = newY;
-})
-drawRect(canvas.width / 2,0,1,canvas.height,'black');
 drawRect(10, 150, 20, 100, 'grey');
 drawRect(570, 150, 20, 100, 'grey');
 drawCircle(300, 150, 16, 'red');
-// net.drawNet();
