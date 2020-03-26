@@ -1,26 +1,14 @@
-class Object {
-    constructor(x,y,color) {
-      this.x = x;
-      this.y = y;
-      this.color = color;
-    }
-  }
+class Player extends GameObject {
+    constructor() {
+        super(20, 100);
+        this.vel = new Vec;
+        this.score = 0;
 
-class Player extends Object {
-    draw() {
-        drawRect(this.x,this.y,20,100,this.color);
+        this._lastPos = new Vec;
     }
 
-    move(y) {
-        this.y = y;
-        this.update();
-    }
-
-    update() {
-        drawRect(this.x,this.y,20,100,this.color);
-    }
-
-    clear(c,oldX,oldY) {
-        c.clearRect(oldX - 1,oldY - 1,30,110,this.color);
+    move(dt) {
+        this.vel.y = (this.pos.y - this._lastPos.y) / dt;
+        this._lastPos.y = this.pos.y;
     }
 }
