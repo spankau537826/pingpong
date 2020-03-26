@@ -1,46 +1,184 @@
-const canvas = document.getElementById("pong");
-const context = canvas.getContext("2d");
+class Pong {
+    constructor(canvas) {
+        this._canvas = canvas;
+        this._context = canvas.getContext('2d');
 
-function drawRect(x, y, w, h, color) {
-  context.fillStyle = color;
-  context.fillRect(x, y, w, h);
+        this.initialSpeed = ballSpeed.EASY;
+
+        this.ball = new Ball;
+
+        this.players = [
+            new Player,
+            new Player,
+        ];
+
+        this.players[0].pos.x = 20;
+        this.players[1].pos.x = this._canvas.width - 20;
+        this.players.forEach(p => p.pos.y = this._canvas.height / 2);
+
+        let lastTime = null;
+        this._frameCallback = (millis) => {
+            if (lastTime !== null) {
+                const diff = millis - lastTime;
+                this.update(diff / 1000);
+            }
+            lastTime = millis;
+            requestAnimationFrame(this._frameCallback);
+        };
+
+        this.CHAR_PIXEL = 10;
+        this.CHARS = [
+            '111101101101111',
+            '010010010010010',
+            '111001111100111',
+            '111001111001111',
+            '101101111001001',
+            '111100111001111',
+            '111100111101111',
+            '111001001001001',
+            '111101111101111',
+            '111101111001111',
+        ].map(str => {
+            const canvas = document.createElement('canvas');
+            const s = this.CHAR_PIXEL;
+            canvas.height = s * 5;
+            canvas.width = s * 3;
+            const context = canvas.getContext('2d');
+            context.fillStyle = rectColor;
+            str.split('').forEach((fill, i) => {
+                if (fill === '1') {
+                    context.fillRect((i % 3) * s, (i / 3 | 0) * s, s, s);
+                }
+            });
+            return canvas;
+        });
+
+        this.reset();
+    }
+
+    clear() {
+        this._context.fillStyle = fieldColor;
+        this._context.fillRect(0, 0, this._canvas.width, this._canvas.height);
+    }
+
+    collide(player, ball) {
+        if (player.left < ball.right && player.right > ball.left &&
+            player.top < ball.bottom && player.bottom > ball.top) {
+            ball.vel.x = -ball.vel.x * 1.05;
+            const len = ball.vel.len;
+            ball.vel.y += player.vel.y * .2;
+            ball.vel.len = len;
+        }
+    }
+
+    drawRect(rect) {
+        this._context.fillStyle = rectColor;
+        this._context.fillRect(rect.left, rect.top, rect.size.x, rect.size.y);
+    }
+
+    drawNet() {
+        this._context.strokeStyle = rectColor;
+        this._context.beginPath();
+        this._context.setLineDash([5, 15]);
+        this._context.moveTo(canvas.width / 2, 1);
+        this._context.lineTo(canvas.width / 2, canvas.height);
+        this._context.stroke();
+    }
+
+    drawCircle(circle) {
+        this._context.fillStyle = circle._color;
+        this._context.beginPath();
+        this._context.arc(circle.pos.x, circle.pos.y, circle._radius, 0, Math.PI * 2, false);
+        this._context.closePath();
+        this._context.fill();
+    }
+
+    drawScore() {
+        const align = this._canvas.width / 3;
+        const cw = this.CHAR_PIXEL * 4;
+        if (this.players[1].score < maxScore) {
+            this.players.forEach((player, index) => {
+                const chars = player.score.toString().split('');
+                const offset = align * (index + 1) - (cw * chars.length / 2) + this.CHAR_PIXEL / 2;
+                chars.forEach((char, pos) => {
+                    this._context.drawImage(this.CHARS[char | 0], offset + pos * cw, 20);
+                });
+            });
+        } else {
+            this.players[1].score = 0;
+        }
+
+    }
+
+    draw() {
+        this.clear();
+
+        this.drawNet();
+        this.drawCircle(this.ball);
+        this.players.forEach(player => this.drawRect(player));
+
+        this.drawScore();
+    }
+
+    play() {
+        const b = this.ball;
+        if (b.vel.x === 0 && b.vel.y === 0) {
+            b.vel.x = 200 * (Math.random() > .5 ? 1 : -1);
+            b.vel.y = 200 * (Math.random() * 2 - 1);
+            b.vel.len = this.initialSpeed;
+        }
+    }
+
+    reset() {
+        const b = this.ball;
+        b.vel.x = 0;
+        b.vel.y = 0;
+        b.pos.x = this._canvas.width / 2;
+        b.pos.y = this._canvas.height / 2;
+    }
+
+    start() {
+        requestAnimationFrame(this._frameCallback);
+    }
+
+    update(dt) {
+        const cvs = this._canvas;
+        const ball = this.ball;
+        ball.pos.x += ball.vel.x * dt;
+        ball.pos.y += ball.vel.y * dt;
+
+        if (ball.right < 0 || ball.left > cvs.width) {
+            ++this.players[ball.vel.x < 0 | 0].score;
+            this.reset();
+        }
+
+        if (ball.vel.y < 0 && ball.top < 0 ||
+            ball.vel.y > 0 && ball.bottom > cvs.height) {
+            ball.vel.y = -ball.vel.y;
+        }
+
+        this.players[1].pos.y = ball.pos.y;
+
+        this.players.forEach(player => {
+            player.move(dt);
+            this.collide(player, ball);
+        });
+
+        this.draw();
+    }
+
+    mousePosition(e) {
+        const rect = canvas.getBoundingClientRect();
+        const root = document.documentElement;
+
+        return {
+            x: e.clientX - rect.left - root.scrollLeft,
+            y: e.clientY - rect.top - root.scrollTop
+        };
+    }
+
+    mouseMoveHandler(e) {
+        const mousePos = this.mousePosition(e);
+        this.players[0].pos.y = mousePos.y - (this.players[0].height / 2);
+    }
 }
-
-function drawCircle(x, y, r, color) {
-  context.fillStyle = color;
-  context.beginPath();
-  context.arc(x, y, r, 0, Math.PI*2, false);
-  context.closePath();
-  context.fill();
-}
-
-function drawText(text, x, y, color) {
-  context.fillStyle = color;
-  context.font = "75px fantasy";
-  context.fillText(text, x, y);
-}
-
-//Create game objects
-var oldX = 10, oldY = 150, newX, newY;
-var player = new Player(oldX,oldY,'grey');
-var opponent = new Player(570,150,'grey');
-var ball = new Ball(300,150,'red');
-player.draw();
-opponent.draw();
-ball.draw();
-
-//Get mouse poasition and move player
-canvas.addEventListener("mousemove", function(e) 
-{
-  var cRect = canvas.getBoundingClientRect();
-  newY = e.clientY - cRect.top;
-
-  if (newY <= cRect.bottom - 110) { 
-    player.clear(context,oldX,oldY);
-    player.move(newY);
-  } 
-  oldY = newY;
-})
-// drawRect(10, 150, 20, 100, 'grey');
-// drawRect(570, 150, 20, 100, 'grey');
-// drawCircle(300, 150, 16, 'red');

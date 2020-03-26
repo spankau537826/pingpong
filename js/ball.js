@@ -1,9 +1,6 @@
-class Ball extends Object {
-    draw() {
-        drawCircle(this.x,this.y,16,this.color);
-    }
-
-    move() {
-        //Duygus Code
+class Ball extends GameObject {
+    constructor() {
+        super(20, 20, 16, ballColor);
+        this.vel = new Vec;
     }
 }
