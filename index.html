@@ -1,17 +1,19 @@
 <!doctype html>
 <html class="no-js" lang="">
 
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Ping Pong Spiel</title>
   <!--  <meta name="viewport" content="width=device-width, initial-scale=1">-->
 
     <link rel="stylesheet" href="css/normalize.css">
   <!--  <link rel="stylesheet" href="css/main.css">-->
-  </head>
-
-  <body>
+</head>
+<body>
     <canvas id="pong" width="600" height="400" style="border: 1px solid #222222"></canvas>
+    <button type="button" id="einspielerBtn" onclick="initialize()">1 SPIELER</button>
+    <button type="button" id="zweispielerBtn" onclick="initialize()">2 SPIELER</button>
+    <button type="button" id="ubungBtn" onclick="initialize()">&Uuml;BUNG STARTEN</button>
 
     <script src="./js/vec.js"></script>
     <script src="js/game-object.js"></script>
@@ -19,6 +21,6 @@
     <script src="./js/ball.js"></script>
     <script src="./js/pong.js"></script>
     <script src="./js/play.js"></script>
-  </body>
-
+    <script src ="./js/menu.js"></script>
+</body>
 </html>

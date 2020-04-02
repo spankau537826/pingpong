@@ -181,4 +181,5 @@ class Pong {
         const mousePos = this.mousePosition(e);
         this.players[0].pos.y = mousePos.y - (this.players[0].height / 2);
     }
+
 }
