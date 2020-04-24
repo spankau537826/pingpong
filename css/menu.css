@@ -6,7 +6,7 @@
      border: none;
      color: white;
      padding: 15px 26px;
-     top: 90px;
+     top: 40px;
      left: 540px;
      width: 200px;
      height: 50px;
@@ -24,7 +24,7 @@
      border: none;
      color: white;
      padding: 15px 26px;
-     top: 165px;
+     top: 125px;
      left: 540px;
      width: 200px;
      height: 50px;
@@ -42,7 +42,7 @@
    border: none;
    color: white;
    padding: 4px 20px;
-   top: 240px;
+   top: 210px;
    left: 540px;
    width: 200px;
    height: 50px;
@@ -60,7 +60,7 @@
     border: none;
     color: white;
     padding: 4px 20px;
-    top: 315px;
+    top: 300px;
     left: 540px;
     width: 200px;
     height: 50px;
@@ -73,3 +73,32 @@
     cursor: pointer;
 }
 
+#box {
+    width: 500px;
+    height: 275px;
+    overflow: hidden;
+    background: #f1f1f1;
+    box-shadow: 0 0 20px black;
+    border-radius; 8px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    padding: 10px;
+    text-align: center;
+    display: none;
+}
+
+#box h1{
+    color: #333
+}
+.close{
+    font-size: 18px;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    background: #3498db;
+    display: inline-block;
+    border-radius: 4px;
+}

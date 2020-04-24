@@ -11,12 +11,22 @@
     <link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
-    <canvas id="pong" width="600" height="400" style="border: 1px solid #222222"></canvas>
-    <button type="button" id="einspielerBtn" onclick="initialize()">1 SPIELER</button>
-    <button type="button" id="zweispielerBtn" onclick="initialize()">2 SPIELER</button>
-    <button type="button" id="ubungBtn" onclick="initialize()">&Uuml;BUNG STARTEN</button>
-    <button type="button" id="anleitungBtn" onclick="">ANLEITUNG</button>
-
+<canvas id="pong" width="600" height="400" style="border: 1px solid #222222"></canvas>
+<div class="btns">
+        <button type="button" id="einspielerBtn" onclick="initialize()">1 SPIELER</button>
+        <button type="button" id="zweispielerBtn" onclick="initialize()">2 SPIELER</button>
+        <button type="button" id="ubungBtn" onclick="initialize()">&Uuml;BUNG STARTEN</button>
+        <button type="button" id="anleitungBtn" onclick="pop()">ANLEITUNG</button>
+</div>
+    <div id="box">
+        <h3> Hallo </br>
+             Das ist das Ping Pong Spiel von Sophie, Maria und Duygu. </br>
+             1 Spieler: Du spielst gegen einen Computer. </br>
+             2 Spieler: Mit deinem/r Freund/in k&ouml;nnt ihr euch &uuml;ber das Internet verbinden und zusammen spielen! </br>
+             Au&szlig;erdem kannst du als &Uuml;bung alleine spielen, um noch st&auml;rker gegen deine Gegner zu werden! Haha
+        </h3>
+    <a onclick="pop()" class="close">Schlie&szlig;en</a>
+</div>
     <script src="./js/vec.js"></script>
     <script src="js/game-object.js"></script>
     <script src="./js/player.js"></script>

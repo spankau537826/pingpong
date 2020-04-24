@@ -63,7 +63,7 @@ hr {
  */
 
 pre {
-  font-family: monospace, monospace; /* 1 */
+  font-family: Montserrat;
   font-size: 1em; /* 2 */
 }
 
@@ -348,79 +348,3 @@ template {
 [hidden] {
   display: none;
 }
-
-/**
- * 1 player button und 2 player button
- */
-#einspielerBtn{
-     background-color: black;
-     border: none;
-     color: white;
-     padding: 15px 26px;
-     top: 90px;
-     left: 540px;
-     width: 200px;
-     height: 50px;
-     text-align: center;
-     text-decoration: none;
-     display: inline-block;
-     position: absolute;
-     margin: 4px 2px;
-     font-size: 20px;
-     cursor: pointer;
- }
-
-#zweispielerBtn{
-     background-color: black;
-     border: none;
-     color: white;
-     padding: 15px 26px;
-     top: 165px;
-     left: 540px;
-     width: 200px;
-     height: 50px;
-     text-align: center;
-     text-decoration: none;
-     display: inline-block;
-     position: absolute;
-     margin: 4px 2px;
-     font-size: 20px;
-     cursor: pointer;
-}
-
-#ubungBtn{
-   background-color: black;
-   border: none;
-   color: white;
-   padding: 4px 20px;
-   top: 240px;
-   left: 540px;
-   width: 200px;
-   height: 50px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   position: absolute;
-   margin: 4px 2px;
-   font-size: 20px;
-   cursor: pointer;
-}
-
-#anleitungBtn{
-    background-color: black;
-    border: none;
-    color: white;
-    padding: 4px 20px;
-    top: 315px;
-    left: 540px;
-    width: 200px;
-    height: 50px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    position: absolute;
-    margin: 4px 2px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
