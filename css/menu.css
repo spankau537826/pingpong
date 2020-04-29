@@ -1,87 +1,57 @@
 /**
  * 1 player button, 2 player button, übung button, anleitung button
  */
-#einspielerBtn{
-     background-color: black;
-     border: none;
-     color: white;
-     padding: 15px 26px;
-     top: 77px;
-     left: 540px;
-     width: 200px;
-     height: 50px;
-     text-align: center;
-     text-decoration: none;
-     display: inline-block;
-     position: absolute;
-     margin: 4px 2px;
-     font-size: 20px;
-     cursor: pointer;
- }
 
-#zweispielerBtn{
-     background-color: black;
-     border: none;
-     color: white;
-     padding: 15px 26px;
-     top: 163px;
-     left: 540px;
-     width: 200px;
-     height: 50px;
-     text-align: center;
-     text-decoration: none;
-     display: inline-block;
-     position: absolute;
-     margin: 4px 2px;
-     font-size: 20px;
-     cursor: pointer;
-}
-
-#ubungBtn{
-   background-color: black;
-   border: none;
-   color: white;
-   padding: 4px 20px;
-   top: 245px;
-   left: 540px;
-   width: 200px;
-   height: 50px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   position: absolute;
-   margin: 4px 2px;
-   font-size: 20px;
-   cursor: pointer;
-}
-
-#anleitungBtn{
-    background-color: black;
-    border: none;
-    color: white;
-    padding: 4px 20px;
-    top: 330px;
-    left: 540px;
-    width: 200px;
-    height: 50px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+.menuContainer {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1000px;
+    height: 600px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.menu {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.menuBtn {
+    color: darkred;
+    width: 250px;
+    height: 70px;
+    text-align: center;
+    display: block;
     margin: 4px 2px;
     font-size: 20px;
+    font-family: "Verdana", sans-serif;
     cursor: pointer;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 5px black;
+    transition: all 0.3s ease-out;
 }
 
-#box {
+.menuBtn:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: red;
+    transition: all 0.3s ease-out;
+    transform: scaleX(1.03);
+}
+
+#anleitung {
     width: 500px;
     height: 275px;
     overflow: hidden;
     background: #f1f1f1;
     box-shadow: 0 0 20px black;
-    border-radius; 8px;
+    border-radius: 8px;
     position: absolute;
-    top: 35%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 9999;
@@ -90,15 +60,27 @@
     display: none;
 }
 
-#box h1{
-    color: #333
+#anleitung h3 {
+    color: #333;
+    font-family: "serif";
 }
-.close{
+
+.closeAnleitung {
     font-size: 18px;
-    color: white;
+    font-family: "Verdana", sans-serif;
+    color: darkred;
     padding: 10px 20px;
     cursor: pointer;
-    background: #3498db;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.7);
     display: inline-block;
     border-radius: 4px;
+    transition: all 0.3s ease-out;
+}
+
+.closeAnleitung:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: red;
+    transition: all 0.3s ease-out;
+    transform: scaleX(1.03);
 }

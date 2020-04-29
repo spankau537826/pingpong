@@ -121,6 +121,12 @@ class Pong {
     }
 
     play() {
+        this._canvas.addEventListener('mousemove', event => {
+            const scale = event.offsetY / (event.target.getBoundingClientRect().height);
+            this.players[0].pos.y = scale * this._canvas.height;
+        });
+
+
         const b = this.ball;
         if (b.vel.x === 0 && b.vel.y === 0) {
             b.vel.x = 200 * (Math.random() > .5 ? 1 : -1);
