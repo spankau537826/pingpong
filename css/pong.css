@@ -3,6 +3,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid #222222;
+    border: 1px solid white;
     filter: blur(2px);
 }

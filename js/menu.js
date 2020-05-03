@@ -1,8 +1,8 @@
-const menu = document.getElementById('menu');
-
 function initialize() {
     menu.style.display = 'none';
-    document.getElementById("pong").style.filter = "blur(0px)";
+    field.style.filter = "blur(0px)";
+    homeIcon.style.display = "block";
+    playIcon.style.display = "block";
 }
 
 let modalHidden = true;

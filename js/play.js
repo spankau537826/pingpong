@@ -1,6 +1,11 @@
-const canvas = document.querySelector('#pong');
-const pong = new Pong(canvas);
+const pong = new Pong(field);
 
-canvas.addEventListener('click', () => pong.play());
+field.addEventListener('click', () => pong.play());
+
+playIcon.addEventListener('click', () => pong.play());
+
+restartIcon.addEventListener('click', () => pong.stop());
+
+homeIcon.addEventListener('click', () => pong.home());
 
 pong.start();
