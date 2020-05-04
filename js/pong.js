@@ -1,3 +1,5 @@
+let animId = null;
+
 class Pong {
     constructor(canvas) {
         this._canvas = canvas;
@@ -23,10 +25,10 @@ class Pong {
                 this.update(diff / 1000);
             }
             lastTime = millis;
-            requestAnimationFrame(this._frameCallback);
+            animId = requestAnimationFrame(this._frameCallback);
         };
 
-        this.CHAR_PIXEL = 10;
+        this.CHAR_PIXEL = 15;
         this.CHARS = [
             '111101101101111',
             '010010010010010',
@@ -80,8 +82,8 @@ class Pong {
         this._context.strokeStyle = rectColor;
         this._context.beginPath();
         this._context.setLineDash([5, 15]);
-        this._context.moveTo(canvas.width / 2, 1);
-        this._context.lineTo(canvas.width / 2, canvas.height);
+        this._context.moveTo(field.width / 2, 1);
+        this._context.lineTo(field.width / 2, field.height);
         this._context.stroke();
     }
 
@@ -96,7 +98,7 @@ class Pong {
     drawScore() {
         const align = this._canvas.width / 3;
         const cw = this.CHAR_PIXEL * 4;
-        if (this.players[1].score < maxScore) {
+        if (this.players[0].score < maxScore && this.players[1].score < maxScore) {
             this.players.forEach((player, index) => {
                 const chars = player.score.toString().split('');
                 const offset = align * (index + 1) - (cw * chars.length / 2) + this.CHAR_PIXEL / 2;
@@ -105,9 +107,13 @@ class Pong {
                 });
             });
         } else {
-            this.players[1].score = 0;
+            this.resetScore();
         }
 
+    }
+
+    resetScore() {
+        this.players.forEach(player => player.score = 0);
     }
 
     draw() {
@@ -133,6 +139,9 @@ class Pong {
             b.vel.y = 200 * (Math.random() * 2 - 1);
             b.vel.len = this.initialSpeed;
         }
+
+        playIcon.style.display = 'none';
+        restartIcon.style.display = 'block';
     }
 
     reset() {
@@ -145,6 +154,26 @@ class Pong {
 
     start() {
         requestAnimationFrame(this._frameCallback);
+    }
+
+    stop() {
+        cancelAnimationFrame(animId);
+        this.reset();
+        this.resetScore();
+        this.start();
+
+        playIcon.style.display = 'block';
+        restartIcon.style.display = 'none';
+    }
+
+    home() {
+        this.stop();
+
+        menu.style.display = 'block';
+        field.style.filter = "blur(2px)";
+        homeIcon.style.display = "none";
+        restartIcon.style.display = "none";
+        playIcon.style.display = "none";
     }
 
     update(dt) {
@@ -172,20 +201,4 @@ class Pong {
 
         this.draw();
     }
-
-    mousePosition(e) {
-        const rect = canvas.getBoundingClientRect();
-        const root = document.documentElement;
-
-        return {
-            x: e.clientX - rect.left - root.scrollLeft,
-            y: e.clientY - rect.top - root.scrollTop
-        };
-    }
-
-    mouseMoveHandler(e) {
-        const mousePos = this.mousePosition(e);
-        this.players[0].pos.y = mousePos.y - (this.players[0].height / 2);
-    }
-
 }

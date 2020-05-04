@@ -10,9 +10,25 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/pong.css">
+    <link rel="stylesheet" href="css/communication.css">
 </head>
 <body>
-<canvas id="pong" width="1000" height="600"></canvas>
+<div class="gameCommunication">
+    <canvas id="pong" width="1000" height="600"></canvas>
+
+    <div id="home" class="actionIconContainer home">
+        <img src="svg/home.svg" alt="home button" class="homeIcon" id="homeIcon">
+        <span class="tooltipText">Home</span>
+    </div>
+    <div id="stop" class="actionIconContainer actionBtn">
+        <img src="svg/arrows.svg" alt="stop button" class="stopIcon actionIcon" id="restartIcon">
+        <span class="tooltipText">Restart</span>
+    </div>
+    <div id="play" class="actionIconContainer actionBtn">
+        <img src="svg/multimedia.svg" alt="play button" class="playIcon actionIcon" id="playIcon">
+        <span class="tooltipText">Play</span>
+    </div>
+</div>
 <div class="menuContainer" id="menu">
     <div class="menu">
         <button type="button" id="einspielerBtn" class="menuBtn" onclick="initialize()">1 SPIELER</button>

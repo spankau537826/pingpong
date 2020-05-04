@@ -1,0 +1,83 @@
+.gameCommunication {
+    position: absolute;
+    background: rgb(204, 219, 213);
+    width: 1100px;
+    height: 700px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.gameCommunication .homeIcon {
+    position: absolute;
+    display: none;
+    height: 36px;
+    width: 36px;
+    top: 94%;
+    left: 46%;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.gameCommunication .homeIcon:hover {
+    transition: all 0.3s ease-out;
+    transform: scale(1.09);
+}
+
+.gameCommunication .actionIcon {
+    position: absolute;
+    display: none;
+    height: 37px;
+    width: 37px;
+    top: 94%;
+    left: 51%;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.gameCommunication .actionIcon:hover {
+    transition: all 0.3s ease-out;
+    transform: scale(1.09);
+}
+
+.actionIconContainer .tooltipText {
+    visibility: hidden;
+    background-color: rgb(204, 219, 213);;
+    color: darkred;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    margin-left: -60px;
+    top: 88%;
+    position: absolute;
+    z-index: 1;
+}
+
+.actionIconContainer .tooltipText::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: #085c3f transparent transparent transparent;
+}
+
+.actionIconContainer:hover .tooltipText {
+    visibility: visible;
+}
+
+.home .tooltipText {
+    width: 60px;
+    left: 50%;
+}
+
+.actionBtn .tooltipText {
+    width: 56px;
+    left: 56%;
+}
+
+.actionBtn .tooltipText::after {
+    margin-left: -13px;
+}
