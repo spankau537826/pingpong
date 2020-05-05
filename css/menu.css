@@ -60,9 +60,10 @@
     display: none;
 }
 
-#anleitung h3 {
+#anleitung p {
     color: #333;
     font-family: "serif";
+    font-size: 22px;
 }
 
 .closeAnleitung {
