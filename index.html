@@ -11,10 +11,16 @@
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/pong.css">
     <link rel="stylesheet" href="css/communication.css">
+    <link rel="stylesheet" href="css/speed.css">
 </head>
 <body>
 <div class="gameCommunication">
     <canvas id="pong" width="1000" height="600"></canvas>
+
+    <div class="speedBtnContainer actionBtn">
+        <button type="button" id="speedBtn" class="speedBtn">Speed: EASY</button>
+        <span class="tooltipText">Change speed</span>
+    </div>
 
     <div id="home" class="actionIconContainer home">
         <img src="svg/home.svg" alt="home button" class="homeIcon" id="homeIcon">
@@ -27,6 +33,16 @@
     <div id="play" class="actionIconContainer actionBtn">
         <img src="svg/multimedia.svg" alt="play button" class="playIcon actionIcon" id="playIcon">
         <span class="tooltipText">Play</span>
+    </div>
+
+    <div class="speedMenuContainer" id="speedMenu">
+        <div class="speedMenu">
+            <button type="button" id="speedEasyBtn" class="menuBtn" onclick="initialize()">EASY</button>
+            <button type="button" id="speedMediumBtn" class="menuBtn" onclick="initialize()">MEDIUM</button>
+            <button type="button" id="speedHardBtn" class="menuBtn" onclick="initialize()">HARD</button>
+            <button type="button" id="speedNightmareBtn" class="menuBtn" onclick="initialize()">NIGHTMARE</button>
+            <button type="button" id="speedImpossibleBtn" class="menuBtn" onclick="initialize()">IMPOSSIBLE</button>
+        </div>
     </div>
 </div>
 <div class="menuContainer" id="menu">
@@ -54,5 +70,6 @@
 <script src="./js/pong.js"></script>
 <script src="./js/play.js"></script>
 <script src="./js/menu.js"></script>
+<script src="./js/speed.js"></script>
 </body>
 </html>

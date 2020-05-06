@@ -6,9 +6,9 @@ const ballColor = 'red';
 // speed
 const ballSpeed = {
     EASY: 300,
-    MEDIUM: 400,
-    HARD: 600,
-    NIGHTMARE: 800,
+    MEDIUM: 550,
+    HARD: 750,
+    NIGHTMARE: 1000,
     IMPOSSIBLE: 1500
 };
 
@@ -18,6 +18,8 @@ const maxScore = 10;
 // communication buttons
 const field = document.getElementById('pong');
 const menu = document.getElementById('menu');
+const speedMenu = document.getElementById('speedMenu');
+const speedBtn = document.getElementById('speedBtn');
 const homeIcon = document.getElementById('homeIcon');
 const playIcon = document.getElementById('playIcon');
 const restartIcon = document.getElementById('restartIcon');

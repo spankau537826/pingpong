@@ -171,9 +171,11 @@ class Pong {
 
         menu.style.display = 'block';
         field.style.filter = "blur(2px)";
+        speedBtn.style.display = "none";
         homeIcon.style.display = "none";
         restartIcon.style.display = "none";
         playIcon.style.display = "none";
+        changeSpeed(speedNames.easy);
     }
 
     update(dt) {

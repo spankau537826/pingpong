@@ -51,6 +51,7 @@
     top: 88%;
     position: absolute;
     z-index: 1;
+    cursor: default;
 }
 
 .actionIconContainer .tooltipText::after {
@@ -58,7 +59,6 @@
     position: absolute;
     top: 100%;
     left: 50%;
-    margin-left: -5px;
     border-width: 7px;
     border-style: solid;
     border-color: #085c3f transparent transparent transparent;
