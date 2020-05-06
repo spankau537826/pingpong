@@ -44,8 +44,8 @@
 }
 
 #anleitung {
-    width: 500px;
-    height: 275px;
+    width: 800px;
+    height: 550px;
     overflow: hidden;
     background: #f1f1f1;
     box-shadow: 0 0 20px black;
@@ -60,9 +60,10 @@
     display: none;
 }
 
-#anleitung h3 {
+#anleitung p {
     color: #333;
     font-family: "serif";
+    font-size: 22px;
 }
 
 .closeAnleitung {
