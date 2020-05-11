@@ -6,6 +6,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 0 0 20px black;
 }
 
 .gameCommunication .homeIcon {
@@ -42,7 +43,7 @@
 
 .actionIconContainer .tooltipText {
     visibility: hidden;
-    background-color: rgb(204, 219, 213);;
+    background-color: rgb(204, 219, 213);
     color: darkred;
     text-align: center;
     border-radius: 6px;
@@ -52,6 +53,7 @@
     position: absolute;
     z-index: 1;
     cursor: default;
+    box-shadow: 0 0 20px black;
 }
 
 .actionIconContainer .tooltipText::after {
@@ -61,7 +63,7 @@
     left: 50%;
     border-width: 7px;
     border-style: solid;
-    border-color: #085c3f transparent transparent transparent;
+    border-color: rgb(204, 219, 213) transparent transparent transparent;
 }
 
 .actionIconContainer:hover .tooltipText {

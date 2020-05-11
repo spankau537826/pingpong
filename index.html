@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/pong.css">
     <link rel="stylesheet" href="css/communication.css">
     <link rel="stylesheet" href="css/speed.css">
+    <link rel="stylesheet" href="css/game-over.css">
 </head>
 <body>
 <div class="gameCommunication">
@@ -44,6 +45,16 @@
             <button type="button" id="speedImpossibleBtn" class="menuBtn" onclick="initialize()">IMPOSSIBLE</button>
         </div>
     </div>
+
+    <div class="gameOverContainer menuContainer" id="gameOver">
+        <img src="svg/game-over.png" alt="game over" class="gameOverIcon" id="gameOverIcon">
+        <div class="gameOverMenu">
+            <button type="button" id="playAgainBtn" class="menuBtn">NOCHMAL SPIELEN</button>
+            <button type="button" id="changeSpeedBtn" class="menuBtn">GESCHWINDIGKEIT ÄNDERN</button>
+            <button type="button" id="homeBtn" class="menuBtn">ZURÜCK ZUR STARTSEITE</button>
+        </div>
+
+    </div>
 </div>
 <div class="menuContainer" id="menu">
     <div class="menu">
@@ -59,21 +70,27 @@
         spielen! </br>  </br>
         Au&szlig;erdem kannst du als <b>&Uuml;bung</b> gegen einen Computer spielen, um noch st&auml;rker  </br>
         gegen deine Gegner zu werden! &#x1F603 </br>  </br>
-        Du kannst auch die Geschwindigkeit deines Balls ausw&auml;hlen, damit es nat&uuml;rlich nicht so einfach ist! &#x1F609
+        Du kannst auch die Geschwindigkeit deines Balls ausw&auml;hlen, damit es nat&uuml;rlich nicht so einfach ist!
+        &#x1F609
         </br> </br>
         Viel Spa&szlig;! &#x1F36A &#x1F95B </br>
 
-        Mehr &uuml;ber das Spiel erf&auml;hrst du hier.
+        <span class="gitHubText">
+            Mehr &uuml;ber das Spiel erf&auml;hrst du
+            <a href="https://github.com/spankau537826/pingpong" target="_blank" onclick="window.open('https://github.com/spankau537826/pingpong')">
+                hier</a>.
+        </span>
     </p>
     <button onclick="pop()" class="closeAnleitung">Schlie&szlig;en</button>
 </div>
 <script src="./js/vec.js"></script>
-<script src="js/game-object.js"></script>
+<script src="./js/game-object.js"></script>
 <script src="./js/player.js"></script>
 <script src="./js/ball.js"></script>
 <script src="./js/pong.js"></script>
 <script src="./js/play.js"></script>
 <script src="./js/menu.js"></script>
 <script src="./js/speed.js"></script>
+<script src="./js/game-over.js"></script>
 </body>
 </html>
