@@ -23,6 +23,10 @@ const speedBtn = document.getElementById('speedBtn');
 const homeIcon = document.getElementById('homeIcon');
 const playIcon = document.getElementById('playIcon');
 const restartIcon = document.getElementById('restartIcon');
+const gameOver = document.getElementById('gameOver');
+const playAgainBtn = document.getElementById('playAgainBtn');
+const changeSpeedBtn = document.getElementById('changeSpeedBtn');
+const homeBtn = document.getElementById('homeBtn');
 
 class GameObject {
     constructor(x = 0, y = 0, r, color) {

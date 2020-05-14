@@ -1,5 +1,5 @@
 /**
- * 1 player button, 2 player button, übung button, anleitung button
+ * spiel starten button, übung starten button, anleitung button
  */
 
 .menuContainer {
@@ -9,7 +9,7 @@
     width: 1100px;
     height: 700px;
     transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 .menu {
@@ -44,8 +44,8 @@
 }
 
 #anleitung {
-    width: 800px;
-    height: 550px;
+    width: 700px;
+    height: 475px;
     overflow: hidden;
     background: #f1f1f1;
     box-shadow: 0 0 20px black;
@@ -61,9 +61,18 @@
 }
 
 #anleitung p {
-    color: #333;
-    font-family: "serif";
-    font-size: 22px;
+    color: #342;
+    font-family: "Verdana", sans-serif;
+    font-size: 18px;
+    margin-top: 11px;
+}
+
+#anleitung .gitHubText {
+    font-size: 14px;
+}
+
+#anleitung .gitHubText a {
+    color: #342;
 }
 
 .closeAnleitung {
@@ -84,4 +93,5 @@
     color: red;
     transition: all 0.3s ease-out;
     transform: scaleX(1.03);
+    box-shadow: 0 0 10px black;
 }

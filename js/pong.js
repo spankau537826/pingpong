@@ -98,7 +98,7 @@ class Pong {
     drawScore() {
         const align = this._canvas.width / 3;
         const cw = this.CHAR_PIXEL * 4;
-        if (this.players[0].score < maxScore && this.players[1].score < maxScore) {
+        if (this.players[0].score <= maxScore && this.players[1].score <= maxScore) {
             this.players.forEach((player, index) => {
                 const chars = player.score.toString().split('');
                 const offset = align * (index + 1) - (cw * chars.length / 2) + this.CHAR_PIXEL / 2;
@@ -106,8 +106,9 @@ class Pong {
                     this._context.drawImage(this.CHARS[char | 0], offset + pos * cw, 20);
                 });
             });
-        } else {
-            this.resetScore();
+            if (this.players[0].score === maxScore || this.players[1].score === maxScore) {
+                openGameOverMenu();
+            }
         }
 
     }
