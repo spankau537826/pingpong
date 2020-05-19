@@ -27,6 +27,7 @@ const gameOver = document.getElementById('gameOver');
 const playAgainBtn = document.getElementById('playAgainBtn');
 const changeSpeedBtn = document.getElementById('changeSpeedBtn');
 const homeBtn = document.getElementById('homeBtn');
+const multiplayerBtn = document.getElementById('multiplayerBtn');
 
 class GameObject {
     constructor(x = 0, y = 0, r, color) {
