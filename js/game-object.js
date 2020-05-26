@@ -17,6 +17,7 @@ const maxScore = 10;
 
 // communication buttons
 const field = document.getElementById('pong');
+const multiplayerfield = document.getElementById('multiplayerpong');
 const menu = document.getElementById('menu');
 const speedMenu = document.getElementById('speedMenu');
 const speedBtn = document.getElementById('speedBtn');

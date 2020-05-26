@@ -17,6 +17,7 @@
 <body>
 <div class="gameCommunication">
     <canvas id="pong" width="1000" height="600"></canvas>
+    <canvas id="multiplayerpong" width="1000" height="600"></canvas>
 
     <div class="speedBtnContainer actionBtn">
         <button type="button" id="speedBtn" class="speedBtn">Speed: EASY</button>
@@ -88,11 +89,11 @@
 <script src="./js/player.js"></script>
 <script src="./js/ball.js"></script>
 <script src="./js/pong.js"></script>
+<script src="./js/multiplayerpong.js"></script>
 <script src="./js/play.js"></script>
 <script src="./js/menu.js"></script>
 <script src="./js/speed.js"></script>
 <script src="./js/game-over.js"></script>
-<script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.21.7.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chat-engine@0.9.18/dist/chat-engine.min.js"></script> 
+<script src="/socket.io/socket.io.js"></script>
 </body>
 </html>

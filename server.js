@@ -1,11 +1,28 @@
-const PORT = process.env.PORT || 3000;
+var express = require("express");
+var socketIO = require("socket.io");
+var http = require('http');
+var path = require('path');
+
+var app = express();
+var server = http.Server(app);
+var io = socketIO(server);
+
 const INDEX = '/index.html';
 
-const server = express()
-  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
-  .listen(PORT, () => console.log(`Listening on ${PORT}`));
+app.set('port', 3000);
+app.use('/', express.static(__dirname));
 
-const io = socketIO(server);
+// Routing
+app.get('/', function(request, response) {
+  response.sendFile(INDEX, { root: __dirname });
+});
+
+server.listen(3000, function() {
+  console.log('Starting server on port 3000');
+});
+
+	
+var players = {};
 
 io.on('connection', (socket) => {
 console.log('Client connected');

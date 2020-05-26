@@ -1,4 +1,5 @@
 const pong = new Pong(field);
+const multiplayerpong = new MultiplayerPong(multiplayerfield);
 
 field.addEventListener('click', () => pong.play());
 
