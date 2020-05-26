@@ -13,14 +13,14 @@
 }
 
 .menu {
-    top: 50%;
+    top: 63%;
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
 }
 
 .menuBtn {
-    color: darkred;
+    color: black;
     width: 250px;
     height: 70px;
     text-align: center;
