@@ -9,6 +9,13 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "file": "${workspaceFolder}/index.html"
+        },
+        {
+            "protocol": "legacy",
+            "address": "localhost",
+            "program": "${workspaceFolder}/server.js",
+            
+
         }
     ]
 }
