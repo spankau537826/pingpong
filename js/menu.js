@@ -1,4 +1,5 @@
 var isMultiplayerSession =  Boolean(false);
+var sessionid = '';
 
 function initialize() {
     menu.style.display = 'none';
@@ -54,4 +55,8 @@ socket.on('message', function(data) {
 });
 socket.on('servererror',function(err) {
     window.alert("Es konnte keine Session erstellt werden. Bitte schließen Sie das Fenster und versuchen Sie es erneut.");
+});
+
+socket.on('sessionid',function(data) {
+    sessionid = data;
 });

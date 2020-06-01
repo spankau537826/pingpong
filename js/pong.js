@@ -113,6 +113,14 @@ class Pong {
 
     }
 
+    drawSessionId() 
+    {
+        var canvas = document.getElementById("pong");
+        var ctx = canvas.getContext("2d");
+        ctx.font = "15px Arial";
+        ctx.fillText("Session-ID: " + window.sessionid, 10, canvas.height);
+    };
+
     resetScore() {
         this.players.forEach(player => player.score = 0);
     }
@@ -125,6 +133,7 @@ class Pong {
         this.players.forEach(player => this.drawRect(player));
 
         this.drawScore();
+        this.drawSessionId();
     }
 
     play() {

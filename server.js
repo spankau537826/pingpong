@@ -47,7 +47,6 @@ io.on('connection', function(socket) {
     //   y: 300
     // };
     client.query(`INSERT INTO session (id) VALUES ('${sessionid}');`, (err, res) => {
-      console.log(sessionid);
       if (err) {
         socket.emit('servererror',err);
         if (err.code !== undefined) {
@@ -64,10 +63,13 @@ io.on('connection', function(socket) {
       for (let row of res.rows) {
         console.log(JSON.stringify(row));
       }
-      socket.emit('sessionid',sessionid);
+      // socket.emit('sessionid',sessionid);
       // client.end();
     });
   });
+  setInterval(function() {
+    socket.emit('sessionid', sessionid);
+  }, 1000 / 60);
   socket.on('disconnect', function() {
     console.log('Client disconnected');
     client.query(`DELETE FROM session WHERE id='${sessionid}';`, (err, res) => {
@@ -118,6 +120,7 @@ function sendQuery(query) {
   });
   return Boolean(result);
 }
+
 
 // var express = require("express");
 // var socketIO = require("socket.io");
