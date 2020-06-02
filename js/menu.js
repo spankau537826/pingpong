@@ -1,14 +1,16 @@
-function initialize() {
+function initializeGame() {
     menu.style.display = 'none';
     speedMenu.style.display = 'none';
     gameOver.style.display = 'none';
 
     field.style.filter = "blur(0px)";
+    leftPlayerName.style.display = "block";
     speedBtn.style.display = "block";
     homeIcon.style.display = "block";
     playIcon.style.display = "block";
     restartIcon.style.display = "none";
 
+    leftPlayerName.style.filter = "blur(0px)";
     speedBtn.style.filter = "blur(0px)";
     homeIcon.style.filter = "blur(0px)";
     playIcon.style.filter = "blur(0px)";

@@ -172,6 +172,7 @@ class Pong {
 
         menu.style.display = 'block';
         field.style.filter = "blur(2px)";
+        leftPlayerName.style.display = "none";
         speedBtn.style.display = "none";
         homeIcon.style.display = "none";
         restartIcon.style.display = "none";
