@@ -18,6 +18,11 @@
 <div class="gameCommunication">
     <canvas id="pong" width="1000" height="600"></canvas>
 
+    <div class="playerNameContainer">
+        <button type="button" id="leftPlayerName" class="playerName"></button>
+        <button type="button" id="rightPlayerName" class="playerName"></button>
+    </div>
+
     <div class="speedBtnContainer actionBtn">
         <button type="button" id="speedBtn" class="speedBtn">Speed: EASY</button>
         <span class="tooltipText">Change speed</span>
@@ -38,11 +43,11 @@
 
     <div class="speedMenuContainer" id="speedMenu">
         <div class="speedMenu">
-            <button type="button" id="speedEasyBtn" class="menuBtn" onclick="initialize()">EASY</button>
-            <button type="button" id="speedMediumBtn" class="menuBtn" onclick="initialize()">MEDIUM</button>
-            <button type="button" id="speedHardBtn" class="menuBtn" onclick="initialize()">HARD</button>
-            <button type="button" id="speedNightmareBtn" class="menuBtn" onclick="initialize()">NIGHTMARE</button>
-            <button type="button" id="speedImpossibleBtn" class="menuBtn" onclick="initialize()">IMPOSSIBLE</button>
+            <button type="button" id="speedEasyBtn" class="menuBtn" onclick="initializeGame()">EASY</button>
+            <button type="button" id="speedMediumBtn" class="menuBtn" onclick="initializeGame()">MEDIUM</button>
+            <button type="button" id="speedHardBtn" class="menuBtn" onclick="initializeGame()">HARD</button>
+            <button type="button" id="speedNightmareBtn" class="menuBtn" onclick="initializeGame()">NIGHTMARE</button>
+            <button type="button" id="speedImpossibleBtn" class="menuBtn" onclick="initializeGame()">IMPOSSIBLE</button>
         </div>
     </div>
 
@@ -58,14 +63,16 @@
 
 <div class="menuContainer" id="menu">
 
+    <p id="welcomePlayerName" class="welcomePlayerName"></p>
+
     <div class="gameNameContainer">
         <img src="svg/ping-pong-rockets.png" alt="pong" class="pongIcon">
         <span class="gameName">Pong</span>
     </div>
 
     <div class="menu">
-        <button type="button" id="zweispielerBtn" class="menuBtn" onclick="initialize()">SPIEL STARTEN</button>
-        <button type="button" id="ubungBtn" class="menuBtn" onclick="initialize()">&Uuml;BUNG STARTEN</button>
+        <button type="button" id="zweispielerBtn" class="menuBtn" onclick="initializeGame()">SPIEL STARTEN</button>
+        <button type="button" id="ubungBtn" class="menuBtn" onclick="initializeGame()">&Uuml;BUNG STARTEN</button>
         <button type="button" id="anleitungBtn" class="menuBtn" onclick="pop()">ANLEITUNG</button>
     </div>
 </div>
@@ -91,6 +98,7 @@
 </div>
 <script src="./js/vec.js"></script>
 <script src="./js/game-object.js"></script>
+<script src="js/player-name.js"></script>
 <script src="./js/player.js"></script>
 <script src="./js/ball.js"></script>
 <script src="./js/pong.js"></script>

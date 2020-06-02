@@ -18,6 +18,8 @@ const maxScore = 10;
 // communication buttons
 const field = document.getElementById('pong');
 const menu = document.getElementById('menu');
+const leftPlayerName = document.getElementById('leftPlayerName');
+const rightPlayerName = document.getElementById('rightPlayerName');
 const speedMenu = document.getElementById('speedMenu');
 const speedBtn = document.getElementById('speedBtn');
 const homeIcon = document.getElementById('homeIcon');
