@@ -62,6 +62,13 @@
         <button type="button" id="zweispielerBtn" class="menuBtn" onclick="initialize()">SPIEL STARTEN</button>
         <button type="button" id="ubungBtn" class="menuBtn" onclick="initialize()">&Uuml;BUNG STARTEN</button>
         <button type="button" id="anleitungBtn" class="menuBtn" onclick="pop()">ANLEITUNG</button>
+        <div class="multiplayer">
+            <label for="othersessionid">Fremde Session-ID:</label>
+            <input type="text" id="sessionid" name="sessionid"><br><br>
+            <div class="showSession">
+                <p>Eigene Session-ID: <span id="ownsessionid"></span></p>
+            </div>
+        </div>
     </div>
 </div>
 <div id="anleitung">
@@ -91,9 +98,15 @@
 <script src="./js/ball.js"></script>
 <script src="./js/pong.js"></script>
 <script src="./js/multiplayerpong.js"></script>
-<script src="./js/play.js"></script>
 <script src="./js/menu.js"></script>
+<script src="./js/play.js"></script>
 <script src="./js/speed.js"></script>
 <script src="./js/game-over.js"></script>
+<script>
+    setInterval(function(){
+        var sessionid = localStorage.getItem("sessionid");
+        document.getElementById("ownsessionid").innerHTML = sessionid;
+    }, 3000);
+</script>
 </body>
 </html>

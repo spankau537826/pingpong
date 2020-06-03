@@ -1,4 +1,5 @@
 let animId = null;
+// var socket = io();
 
 class Pong {
     constructor(canvas) {
@@ -17,6 +18,12 @@ class Pong {
         this.players[0].pos.x = 20;
         this.players[1].pos.x = this._canvas.width - 20;
         this.players.forEach(p => p.pos.y = this._canvas.height / 2);
+
+        var playerdata = {
+            x: this.players[0].pos.x,
+            y: this.players[0].pos.y
+        }
+        socket.emit('new player',playerdata);
 
         let lastTime = null;
         this._frameCallback = (millis) => {
@@ -133,7 +140,7 @@ class Pong {
         this.players.forEach(player => this.drawRect(player));
 
         this.drawScore();
-        this.drawSessionId();
+        // this.drawSessionId();
     }
 
     play() {
