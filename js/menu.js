@@ -5,7 +5,7 @@ function wait() {
     window.location.href = "./lobby.html";
 }
 
-function initialize() {
+function initializeGame() {
     menu.style.display = 'none';
     speedMenu.style.display = 'none';
     gameOver.style.display = 'none';
