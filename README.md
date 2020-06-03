@@ -1,7 +1,7 @@
 <!-- font: verdana -->
 #Herzlich Willkommen! 
 
-Das ist das Ping Pong Spiel von Sophie, Maria und Duygu. 
+Das ist das Ping Pong Spiel von Sophie, Maria und Duygu.  
 	
 Spiel starten: Mit deinem/r Freund/in könnt ihr euch über das Internet verbinden und 	zusammen spielen! 
 
