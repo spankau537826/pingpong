@@ -17,6 +17,7 @@ const maxScore = 10;
 
 // communication buttons
 const field = document.getElementById('pong');
+const multiplayerfield = document.getElementById('multiplayerpong');
 const menu = document.getElementById('menu');
 const leftPlayerName = document.getElementById('leftPlayerName');
 const rightPlayerName = document.getElementById('rightPlayerName');
@@ -29,6 +30,8 @@ const gameOver = document.getElementById('gameOver');
 const playAgainBtn = document.getElementById('playAgainBtn');
 const changeSpeedBtn = document.getElementById('changeSpeedBtn');
 const homeBtn = document.getElementById('homeBtn');
+const multiplayerBtn = document.getElementById('multiplayerBtn');
+const singleplayerBtn = document.getElementById('ubungBtn');
 
 class GameObject {
     constructor(x = 0, y = 0, r, color) {

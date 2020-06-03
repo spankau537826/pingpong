@@ -17,6 +17,7 @@
 <body>
 <div class="gameCommunication">
     <canvas id="pong" width="1000" height="600"></canvas>
+    <canvas id="multiplayerpong" width="1000" height="600"></canvas>
 
     <div class="playerNameContainer">
         <button type="button" id="leftPlayerName" class="playerName"></button>
@@ -74,6 +75,13 @@
         <button type="button" id="zweispielerBtn" class="menuBtn" onclick="initializeGame()">SPIEL STARTEN</button>
         <button type="button" id="ubungBtn" class="menuBtn" onclick="initializeGame()">&Uuml;BUNG STARTEN</button>
         <button type="button" id="anleitungBtn" class="menuBtn" onclick="pop()">ANLEITUNG</button>
+        <div class="multiplayer">
+            <label for="othersessionid">Fremde Session-ID:</label>
+            <input type="text" id="sessionid" name="sessionid"><br><br>
+            <div class="showSession">
+                <p>Eigene Session-ID: <span id="ownsessionid"></span></p>
+            </div>
+        </div>
     </div>
 </div>
 <div id="anleitung">
@@ -96,15 +104,23 @@
     </p>
     <button onclick="pop()" class="closeAnleitung">Schlie&szlig;en</button>
 </div>
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
 <script src="./js/vec.js"></script>
 <script src="./js/game-object.js"></script>
 <script src="js/player-name.js"></script>
 <script src="./js/player.js"></script>
 <script src="./js/ball.js"></script>
 <script src="./js/pong.js"></script>
-<script src="./js/play.js"></script>
+<script src="./js/multiplayerpong.js"></script>
 <script src="./js/menu.js"></script>
+<script src="./js/play.js"></script>
 <script src="./js/speed.js"></script>
 <script src="./js/game-over.js"></script>
+<script>
+    setInterval(function(){
+        var sessionid = localStorage.getItem("sessionid");
+        document.getElementById("ownsessionid").innerHTML = sessionid;
+    }, 3000);
+</script>
 </body>
 </html>

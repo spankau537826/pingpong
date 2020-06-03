@@ -19,6 +19,29 @@
     position: absolute;
 }
 
+.showSession {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    display: block;
+    margin: 4px 2px;
+    font-size: 15px;
+    font-family: "Verdana", sans-serif;
+    white-space: nowrap;
+}
+
+.multiplayer {
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    display: block;
+    margin: 4px 2px;
+    font-size: 15px;
+    font-family: "Verdana", sans-serif;
+}
+
 .menuBtn {
     color: black;
     width: 250px;

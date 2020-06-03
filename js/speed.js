@@ -24,22 +24,27 @@ function changeSpeed(speed) {
     switch (speed) {
         case speedNames.easy:
             pong.initialSpeed = ballSpeed.EASY;
+            // multiplayerpong.initialSpeed = ballSpeed.EASY;
             changeText();
             break;
         case speedNames.medium:
             pong.initialSpeed = ballSpeed.MEDIUM;
+            // multiplayerpong.initialSpeed = ballSpeed.MEDIUM;
             changeText();
             break;
         case speedNames.hard:
             pong.initialSpeed = ballSpeed.HARD;
+            // multiplayerpong.initialSpeed = ballSpeed.MEDIUM;
             changeText();
             break;
         case speedNames.nightmare:
             pong.initialSpeed = ballSpeed.NIGHTMARE;
+            // multiplayerpong.initialSpeed = ballSpeed.MEDIUM;
             changeText();
             break;
         case speedNames.impossible:
             pong.initialSpeed = ballSpeed.IMPOSSIBLE;
+            // multiplayerpong.initialSpeed = ballSpeed.MEDIUM;
             changeText();
             break;
     }
