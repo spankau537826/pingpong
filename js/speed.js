@@ -10,13 +10,13 @@ function openSpeedMenu() {
     pong.stop();
     speedMenu.style.display = 'block';
     field.style.filter = "blur(2px)";
+    leftPlayerName.style.filter = "blur(2px)";
     speedBtn.style.filter = "blur(2px)";
     homeIcon.style.filter = "blur(2px)";
     playIcon.style.filter = "blur(2px)";
 }
 
 function changeSpeed(speed) {
-    const speedBtn = document.getElementById('speedBtn');
     function changeText() {
         return speedBtn.innerHTML = 'Speed: ' + speed;
     }

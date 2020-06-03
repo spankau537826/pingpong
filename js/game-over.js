@@ -1,6 +1,7 @@
 function openGameOverMenu() {
     gameOver.style.display = 'block';
     field.style.filter = "blur(2px)";
+    leftPlayerName.style.filter = "blur(2px)";
     speedBtn.style.filter = "blur(2px)";
     homeIcon.style.filter = "blur(2px)";
     restartIcon.style.filter = "blur(2px)";
@@ -8,7 +9,7 @@ function openGameOverMenu() {
 
 function closeGameOverMenu() {
     pong.resetScore();
-    initialize();
+    initializeGame();
 }
 
 playAgainBtn.addEventListener('click', () => {
