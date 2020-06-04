@@ -1,5 +1,5 @@
 let animId = null;
-// var socket = io();
+//This class handels the game logic 
 
 class Pong {
     constructor(canvas) {
@@ -140,7 +140,6 @@ class Pong {
         this.players.forEach(player => this.drawRect(player));
 
         this.drawScore();
-        // this.drawSessionId();
     }
 
     play() {

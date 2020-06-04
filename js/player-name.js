@@ -1,3 +1,4 @@
+//This file handels the player's name
 let shortPlayerName;
 const pageLoadingTimeout = 500;
 
