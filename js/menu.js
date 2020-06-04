@@ -1,4 +1,5 @@
 var sessiontype =  'single';
+var socket = io();
 
 function wait() {
     lobby.start();
@@ -37,8 +38,20 @@ function pop() {
     }
 }
 
+function load() {
+    const loadingPage = document.getElementById("loadScreen");
+    if (modalHidden === true) {
+        loadingPage.style.display = "block";
+        modalHidden = false;
+        const sessionid = document.getElementById("sessionid");
+        socket.emit('getting session',sessionid);
+    } else {
+        loadingPage.style.display = "none";
+        modalHidden = true;
+    }
+}
+
 // useEffect(()=>{
-    var socket = io();
     // socket.emit('new player');
 
     socket.on('servererror',function(err) {
@@ -49,5 +62,10 @@ function pop() {
         const sessionid = data;
         localStorage.setItem("sessionid",sessionid);
     });
+
+    socket.on('session closed', function() {
+        localStorage.clear();
+        console.log('session closed');
+    })
 //   }, []);
 

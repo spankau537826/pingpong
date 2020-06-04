@@ -19,6 +19,36 @@
     position: absolute;
 }
 
+.loadBtn {
+    color: black;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    display: block;
+    margin: 4px 2px;
+    font-size: 10px;
+    font-family: "Verdana", sans-serif;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 5px black;
+    transition: all 0.3s ease-out;
+    display:inline-block;
+}
+
+.multiplayer {
+    top: 120%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    display: block;
+    margin: 4px 2px;
+    font-size: 15px;
+    font-family: "Verdana", sans-serif;
+    display: inline-block;
+}
+
 .showSession {
     top: 100%;
     left: 50%;
@@ -31,16 +61,6 @@
     white-space: nowrap;
 }
 
-.multiplayer {
-    top: 150%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    display: block;
-    margin: 4px 2px;
-    font-size: 15px;
-    font-family: "Verdana", sans-serif;
-}
 
 .menuBtn {
     color: black;
@@ -59,11 +79,30 @@
     transition: all 0.3s ease-out;
 }
 
+
+
 .menuBtn:hover {
     background-color: rgba(255, 255, 255, 0.8);
     color: red;
     transition: all 0.3s ease-out;
     transform: scaleX(1.03);
+}
+
+#loadScreen {
+    width: 700px;
+    height: 475px;
+    overflow: hidden;
+    background: #f1f1f1;
+    box-shadow: 0 0 20px black;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    padding: 10px;
+    text-align: center;
+    display: none;
 }
 
 #anleitung {

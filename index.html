@@ -76,8 +76,13 @@
         <button type="button" id="ubungBtn" class="menuBtn" onclick="initializeGame()">&Uuml;BUNG STARTEN</button>
         <button type="button" id="anleitungBtn" class="menuBtn" onclick="pop()">ANLEITUNG</button>
         <div class="multiplayer">
-            <label for="othersessionid">Fremde Session-ID:</label>
-            <input type="text" id="sessionid" name="sessionid"><br><br>
+            <div class="joinOtherSession">
+                <label for="othersessionid">Fremde Session-ID:</label>
+                <div class="form-inline">
+                    <input type="text" id="sessionid" name="sessionid">
+                    <button type="button" id="loadingBtn" class="loadBtn" onclick="load()">SESSION BEITRETEN</button>
+                </div>
+            </div>
             <div class="showSession">
                 <p>Eigene Session-ID: <span id="ownsessionid"></span></p>
             </div>
@@ -104,10 +109,14 @@
     </p>
     <button onclick="pop()" class="closeAnleitung">Schlie&szlig;en</button>
 </div>
+<div id="loadScreen">
+    <p>test<br></p>
+    <button onclick="load()" class="closeloadScreen">Schlie&szlig;en</button>
+</div>
 <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script src="js/player-name.js"></script>
 <script src="./js/vec.js"></script>
 <script src="./js/game-object.js"></script>
-<script src="js/player-name.js"></script>
 <script src="./js/player.js"></script>
 <script src="./js/ball.js"></script>
 <script src="./js/pong.js"></script>
