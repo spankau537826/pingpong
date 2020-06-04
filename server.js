@@ -40,90 +40,101 @@ var players = {};
 io.on('connection', function(socket) {
   console.log('Client connected');
   const sessionid = uuidv4();
-  console.log(sessionid);
-  client.query(`INSERT INTO session (id) VALUES ('${sessionid}');`, (err, res) => {
-    if (err) {
-      socket.emit('servererror',err);
-      if (err.code !== undefined) {
-        console.log("pg error code:", err.code);
+  sendQuery(`INSERT INTO session (id) VALUES ('${sessionid}');`);
+  // client.query(`INSERT INTO session (id) VALUES ('${sessionid}');`, (err, res) => {
+  //   if (err) {,socket
+  //     socket.emit('servererror',err);
+  //     if (err.code !== undefined) {
+  //       console.log("pg error code:", err.code);
       
-        // 42601 = 'syntax_error'
-        if (err.code === "42601") {
-          // return the position of the SQL syntax error
-          console.log("SQL syntax error position:", err.position);
-        }
-      }
-      throw err;
-    }
-    for (let row of res.rows) {
-      console.log(JSON.stringify(row));
-    }
-    // socket.emit('sessionid',sessionid);
-    // client.end();
-  });
+  //       // 42601 = 'syntax_error'
+  //       if (err.code === "42601") {
+  //         // return the position of the SQL syntax error
+  //         console.log("SQL syntax error position:", err.position);
+  //       }
+  //     }
+  //     throw err;
+  //   }
+  //   for (let row of res.rows) {
+  //     console.log(JSON.stringify(row));
+  //   }
+  //   // socket.emit('sessionid',sessionid);
+  //   // client.end();
+  // });
   setInterval(function() {
     io.emit('sessionid', sessionid);
   }, 1000 / 60);
+  socket.on('getting session',function(data) {
+    var foreignsessionid = data;
+    sendQuery(`UPDATE session SET player2 = '${socket.id}' WHERE id = '${foreignsessionid}';`);
+    socket.emit('ready for game');
+  });
   socket.on('new player', function(data) {
     console.log('new player');
     console.log(socket.id);
     players[socket.id] = {
       x: data.x,
       y: data.y,
+      name: data.name,
       session: sessionid
     };
-    client.query(`INSERT INTO player (id,session,name,x,y) VALUES ('${socket.id}','${sessionid}','test',${players[socket.id].x},${players[socket.id].y});`, (err, res) => {
-      if (err) {
-        socket.emit('servererror',err);
-        if (err.code !== undefined) {
-          console.log("pg error code:", err.code);
+    sendQuery(`INSERT INTO player (id,session,name,x,y) VALUES ('${socket.id}','${sessionid}','test',${players[socket.id].x},${players[socket.id].y});`);
+    sendQuery(`UPDATE session SET player1 = '${socket.id}' WHERE id = '${sessionid}';`);
+
+    // client.query(`INSERT INTO player (id,session,name,x,y) VALUES ('${socket.id}','${sessionid}','test',${players[socket.id].x},${players[socket.id].y});`, (err, res) => {
+    //   if (err) {
+    //     socket.emit('servererror',err);
+    //     if (err.code !== undefined) {
+    //       console.log("pg error code:", err.code);
         
-          // 42601 = 'syntax_error'
-          if (err.code === "42601") {
-            // return the position of the SQL syntax error
-            console.log("SQL syntax error position:", err.position);
-          }
-        }
-        throw err;
-      }
-      for (let row of res.rows) {
-        console.log(JSON.stringify(row));
-      }
-    });
-    console.log(sessionid);
+    //       // 42601 = 'syntax_error'
+    //       if (err.code === "42601") {
+    //         // return the position of the SQL syntax error
+    //         console.log("SQL syntax error position:", err.position);
+    //       }
+    //     }
+    //     throw err;
+    //   }
+    //   for (let row of res.rows) {
+    //     console.log(JSON.stringify(row));
+    //   }
+    // });
   });
   socket.on('disconnect', function() {
     console.log('Client disconnected');
-    client.query(`DELETE FROM player WHERE id='${socket.id}';`, (err, res) => {
-      if (err) {
-        socket.emit('servererror',err);
-        if (err.code !== undefined) {
-          console.log("pg error code:", err.code);
+    socket.emit('session closed');
+    sendQuery(`DELETE FROM player WHERE id='${socket.id}';`);
+    // client.query(`DELETE FROM player WHERE id='${socket.id}';`, (err, res) => {
+    //   if (err) {
+    //     socket.emit('servererror',err);
+    //     if (err.code !== undefined) {
+    //       console.log("pg error code:", err.code);
         
-          // 42601 = 'syntax_error'
-          if (err.code === "42601") {
-            // return the position of the SQL syntax error
-            console.log("SQL syntax error position:", err.position);
-          }
-        }
-        throw err;
-      }
-    });
-    client.query(`DELETE FROM session WHERE id='${sessionid}';`, (err, res) => {
-      if (err) {
-        socket.emit('servererror',err);
-        if (err.code !== undefined) {
-          console.log("pg error code:", err.code);
+    //       // 42601 = 'syntax_error'
+    //       if (err.code === "42601") {
+    //         // return the position of the SQL syntax error
+    //         console.log("SQL syntax error position:", err.position);
+    //       }
+    //     }
+    //     throw err;
+    //   }
+    // });
+    sendQuery(`DELETE FROM session WHERE id='${sessionid}';`);
+    // client.query(`DELETE FROM session WHERE id='${sessionid}';`, (err, res) => {
+    //   if (err) {
+    //     socket.emit('servererror',err);
+    //     if (err.code !== undefined) {
+    //       console.log("pg error code:", err.code);
         
-          // 42601 = 'syntax_error'
-          if (err.code === "42601") {
-            // return the position of the SQL syntax error
-            console.log("SQL syntax error position:", err.position);
-          }
-        }
-        throw err;
-      }
-    });
+    //       // 42601 = 'syntax_error'
+    //       if (err.code === "42601") {
+    //         // return the position of the SQL syntax error
+    //         console.log("SQL syntax error position:", err.position);
+    //       }
+    //     }
+    //     throw err;
+    //   }
+    // });
   })
 });
 
@@ -138,7 +149,7 @@ function sendQuery(query) {
   var result = false;
   client.query(query, (err, res) => {
     if (err) {
-      socket.emit('servererror',err);
+      io.sockets.emit('servererror',err);
       if (err.code !== undefined) {
         console.log("pg error code:", err.code);
       
@@ -155,7 +166,6 @@ function sendQuery(query) {
     }
     result = true;
   });
-  return Boolean(result);
 }
 
 
