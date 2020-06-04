@@ -66,6 +66,10 @@ function load() {
     socket.on('session closed', function() {
         localStorage.clear();
         console.log('session closed');
-    })
+    });
+
+    socket.on('ready for game',function() {
+        
+    });
 //   }, []);
 
